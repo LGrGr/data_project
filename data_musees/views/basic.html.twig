@@ -1,0 +1,12 @@
+<h1>Members</h1>
+<ul>
+    {% for user in tab %}
+       
+       {% if user == "Lucie" %}
+            <li>{{ user }} c'est la championne</li>
+        {% else %}
+              <li>{{ user  }} c'est un ou une  perdant</li>
+        {% endif %}
+        
+    {% endfor %}
+</ul>
