@@ -16,8 +16,6 @@ catch(PDOException $e)
     echo "Connection failed: " . $e->getMessage();
     }
 
-    function nouvelleRegion($pdo){
-      $nRegion = "UPDATE musee SET region='GRAND EST' WHERE region='ALSACE' OR region='LORRAINE' OR region='CHAMPAGNE-ARDENNE' "
-    }
+  
 
  ?>

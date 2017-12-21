@@ -1,25 +1,19 @@
 @font-face {
   font-family: 'RalewayM';
-  src: url('Raleway-Medium.ttf');
+  src: url('../fonts/Raleway-Medium.ttf');
 }
 
 @font-face {
   font-family: 'RalewayEB';
-  src: url('Raleway-ExtraBold.ttf');
+  src: url('../fonts/Raleway-ExtraBold.ttf');
 }
 
 @font-face {
   font-family: 'RalewaySB';
-  src: url('Raleway-SemiBold.ttf');
+  src: url('../fonts/Raleway-SemiBold.ttf');
 }
 
-$white: #fff;
-$rougePouilly: #a73439;
-$grisFonce: #5a5955;
-$gris: #c7c6c4;
-
-$topbar-responsive-bg: #2c3840;
-$topbar-responsive-animation-type: fade-in;
+@import "variables.scss";
 
 body{
   font-family: 'RalewayM';
@@ -262,7 +256,6 @@ header{
     margin-left:-300%;
   }
 }
-
 @-webkit-keyframes content-s{
   0%{left:-420px;}
   10%{left:0px;}
@@ -300,7 +293,6 @@ header{
   90%{left:-420px;}
   100%{left:-420px;}
 }
-
 @-webkit-keyframes on{
   0%,100%{
     margin-left:0%;
@@ -327,7 +319,6 @@ header{
     margin-left:45px;
   }
 }
-
 @-moz-keyframes on{
   0%,100%{
     margin-left:0%;
@@ -354,7 +345,6 @@ header{
     margin-left:45px;
   }
 }
-
 @keyframes on{
   0%,100%{
     margin-left:0%;
@@ -382,7 +372,42 @@ header{
   }
 }
 
+#fleche{
+  position: absolute;
+  top:340px;
+  left: 645px;
+  z-index: 5;
+  width: 5%;
+  fill: rgba(255, 255, 255, 0.6);
+
+  &:hover{
+    fill: rgba(255, 255, 255, 1);
+  }
+}
+
+
+/* carte */
+#carte{
+  margin-top: 40px;
+}
+
 //footer
+.rem{
+  margin-top: 60px !important;
+  background-color: rgb(170, 167, 167);
+  .acs{
+    padding: 20px;
+  }
+
+  a{
+    color: rgb(147, 142, 142);
+
+    &:hover{
+      color: $white;
+    }
+}
+}
 footer{
-  margin-top: 60px; 
+  background-color: $grisFonce;
+  padding-top: 40px;
 }
