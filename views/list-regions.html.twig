@@ -1,0 +1,8 @@
+<h1>Musées de {{ region }}</h1>
+{% for musee in musees %}
+<div>
+    <h3>{{ musee.nom_du_musee }}</h3>
+    <p>{{ musee.periode_ouverture}}</p>
+</div>
+<hr> 
+{% endfor %}
