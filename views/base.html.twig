@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <link rel="stylesheet" href="./foundation/css/foundation.min.css">
-  <link rel="stylesheet" href="./views/css/museeStyle.css">
+  <link rel="stylesheet" href="http://localhost/data_project/foundation/css/foundation.min.css">
+  <link rel="stylesheet" href="http://localhost/data_project/views/css/museeStyle.css">
   <title>{% block title %}{% endblock %} - HexagoMuse</title>
-
-
 </head>
+
+{% block body %}
 <body>
+
+
+  {% block header %}
   <header class="grid-container fluid">
-    {% block header %}
     <nav class="top-bar topbar-responsive grid-container">
       <div class="top-bar-title">
-        <a class="topbar-responsive-logo" href="#">
+        <a class="topbar-responsive-logo" href="http://localhost/data_project/home">
           <svg id="logo" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           width="100px" height="100px" viewBox="0 0 841.89 595.28" enable-background="new 0 0 841.89 595.28" xml:space="preserve" fill="#fff">
           <g>
@@ -147,96 +148,15 @@
       </div>
     </nav>
   </header>
-
-  <!-- Slider -->
-  <div id="slider">
-    <div class="slides">
-      <div class="slider">
-        <div class="legend"></div>
-        <div class="content">
-          <div class="content-txt">
-            <h1>Une envie ? un musée</h1>
-            <h2>Vous cherchez une idée de sortie ? Une envie de faire grandir votre culture ? </br>
-            Avec notre site vous pourrez trouver tous les musées ayant le label Musées de France, présent sur le territoire</h2>
-          </div>
-        </div>
-        <div class="image">
-          <img src="./views/images/anthony-delanoix-217060.jpg">
-        </div>
-      </div>
-      <div class="slider">
-        <div class="legend"></div>
-        <div class="content">
-          <div class="content-txt">
-            <h1>c'est si simple !</h1>
-            <h2>Cliquez sur la carte interactive et laissez vous guider. Vous trouverez forcément le musée qui vous correspond.</h2>
-          </div>
-        </div>
-        <div class="image">
-          <img src="./views/images/nigel-tadyanehondo-328315.jpg">
-        </div>
-      </div>
-      <div class="slider">
-        <div class="legend"></div>
-        <div class="content">
-          <div class="content-txt">
-            <h1>Lorem ipsum dolor</h1>
-            <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
-          </div>
-        </div>
-        <div class="image">
-          <img src="./views/images/pana-vasquez.png">
-        </div>
-      </div>
-      <div class="slider">
-        <div class="legend"></div>
-        <div class="content">
-          <div class="content-txt">
-            <h1>Lorem ipsum dolor</h1>
-            <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
-          </div>
-        </div>
-        <div class="image">
-          <img src="./views/images/uriel-soberanes.png">
-        </div>
-      </div>
-    </div>
-    <div class="switch">
-      <ul>
-        <li>
-          <div class="on"></div>
-        </li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-  </div>
-  <a href="#carte">
-    <svg id="fleche" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-    width="444.819px" height="444.819px" viewBox="0 0 444.819 444.819" style="enable-background:new 0 0 444.819 444.819;"
-    xml:space="preserve">
-    <g>
-      <path d="M434.252,114.203l-21.409-21.416c-7.419-7.04-16.084-10.561-25.975-10.561c-10.095,0-18.657,3.521-25.7,10.561
-      L222.41,231.549L83.653,92.791c-7.042-7.04-15.606-10.561-25.697-10.561c-9.896,0-18.559,3.521-25.979,10.561l-21.128,21.416
-      C3.615,121.436,0,130.099,0,140.188c0,10.277,3.619,18.842,10.848,25.693l185.864,185.865c6.855,7.23,15.416,10.848,25.697,10.848
-      c10.088,0,18.75-3.617,25.977-10.848l185.865-185.865c7.043-7.044,10.567-15.608,10.567-25.693
-      C444.819,130.287,441.295,121.629,434.252,114.203z"/>
-    </g>
-  </svg>
-</a>
   {% endblock %}
 
-
+  {% block slider %} {% endblock %}
   <div id="carte">{% block carte %}{% endblock %}</div>
+  {% block musees %}{% endblock %}
 
 
-
+{% block footer %}
   <div id="footer">
-    {% block footer %}
-
-
-
       <footer class="grid-container fluid">
         <div class="grid-container">
           <div class="grid-x grid-margin-x">
@@ -313,16 +233,15 @@
             </div>
           </div>
 
-
           <div class="grid-x grid-margin-x crea text-center">
             <div class="cell small-12 medium-4 large-4 ">
-            <a href="https://github.com/LGrGr" target="_blank"><img src="./views/images/Lulu.png" alt="Lucie GR"></a>
+            <a href="https://github.com/LGrGr" target="_blank"><img src="http://localhost/data_project/views/images/Lulu.png" alt="Lucie GR"></a>
           </div>
             <div class="cell small-12 medium-4 large-4 ">
-            <a href="https://github.com/Gaspard25" target="_blank"><img src="./views/images/Toinou.png" alt="Antoine M"></a>
+            <a href="https://github.com/Gaspard25" target="_blank"><img src="http://localhost/data_project/views/images/Toinou.png" alt="Antoine M"></a>
           </div>
             <div class="cell small-12 medium-4 large-4 ">
-            <a href="https://github.com/MagaliH" target="_blank"> <img src="./views/images/Lily.png" alt="Lily H"></a>
+            <a href="https://github.com/MagaliH" target="_blank"> <img src="http://localhost/data_project/views/images/Lily.png" alt="Lily H"></a>
           </div>
         </div>
       </div>
@@ -330,16 +249,12 @@
       </div>
     </footer>
 
-
-
-
-    {% endblock %}
   </div>
+  {% endblock %}
 
-
-  <script type="text/javascript" src="./foundation/js/vendor/jquery.js"></script>
-  <script type="text/javascript" src="./foundation/js/vendor/what-input.js"></script>
-  <script type="text/javascript" src="./foundation/js/vendor/foundation.min.js"></script>
+  <script type="text/javascript" src="http://localhost/data_project/foundation/js/vendor/jquery.js"></script>
+  <script type="text/javascript" src="http://localhost/data_project/foundation/js/vendor/what-input.js"></script>
+  <script type="text/javascript" src="http://localhost/data_project/foundation/js/vendor/foundation.min.js"></script>
   <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
   <script>
   $( document ).ready(function() {
@@ -351,5 +266,7 @@
 
   });
   </script>
+
 </body>
+{% endblock %}
 </html>
