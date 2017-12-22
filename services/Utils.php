@@ -1,6 +1,6 @@
 <?php
 class Utils{
-    
+
     static function parseRegion($current_region){
         switch ($current_region) {
                 case "mayotte":
@@ -43,13 +43,10 @@ class Utils{
                     $region = "CORSE";
                     break;
 
-                case "Guadeloupe":
+                case "guadeloupe":
                     $region = "GUADELOUPE";
                     break;
 
-                case "Guadeloupe":
-                    $region = "GUADELOUPE";
-                    break;
 
                 case "ileDeFrance":
                     $region = "ILE-DE-FRANCE";
@@ -68,12 +65,12 @@ class Utils{
                     break;
 
                   case "paca":
-                    $region = "PROVENCE-ALPES-COTESD'AZUR";
-                    break;  
+                    $region = "PROVENCE-ALPES-CÔTESD'AZUR";
+                    break;
 
                    case "reunion":
                     $region = "REUNION";
-                    break; 
+                    break;
 
                   case "martinique":
                     $region = "MARTINIQUE";
@@ -81,15 +78,15 @@ class Utils{
                   default:
                         $region = false;
             }
-        
+
         return $region;
-        
+
     }
-    
-    
-    
-    
-    
+
+
+
+
+
 }
 
 

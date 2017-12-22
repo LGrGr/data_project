@@ -13,10 +13,28 @@
   src: url('../fonts/Raleway-SemiBold.ttf');
 }
 
+@font-face {
+  font-family: 'Chewy';
+  src: url('../fonts/Chewy-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Handlee';
+  src: url('../fonts/Handlee-Regular.ttf');
+}
+
 @import "variables.scss";
 
 body{
   font-family: 'RalewayM';
+}
+
+h2{
+  font-family: 'Chewy';
+}
+
+#carte{
+  padding-top: 30px;
 }
 
 header{
@@ -69,7 +87,7 @@ header{
 /* Slider */
 #slider{
   width: 100%;
-  height:530px;
+  height:580px;
   position:relative;
   overflow:hidden;
 
@@ -156,6 +174,7 @@ header{
       animation:content-s 7.5s infinite;
 
         h1{
+          font-family: 'Chewy'; 
           text-transform:uppercase;
           font-size:24px;
           color:#fff;
@@ -164,8 +183,8 @@ header{
         }
 
         h2{
-          font-size:14px;
-          font-style:italic;
+          font-family: 'RalewaySB';
+          font-size:18px;
           color:#fff;
           margin-left:30px;
         }
@@ -374,7 +393,7 @@ header{
 
 #fleche{
   position: absolute;
-  top:340px;
+  top:395px;
   left: 645px;
   z-index: 5;
   width: 5%;
@@ -387,27 +406,30 @@ header{
 
 
 /* carte */
-#carte{
-  margin-top: 40px;
-}
+#map {
+    max-width: 50%;
+    max-height: 0%;
 
-//footer
-.rem{
-  margin-top: 60px !important;
-  background-color: rgb(170, 167, 167);
-  .acs{
-    padding: 20px;
+    path{
+      stroke-width:3;
+
+      &:hover{
+        fill: rgba(167, 52, 57, 0.6);
+      }
+    }
   }
 
-  a{
-    color: rgb(147, 142, 142);
 
-    &:hover{
-      color: $white;
-    }
-}
-}
+//footer
+
 footer{
-  background-color: $grisFonce;
+  margin-top: 60px !important;
+  background-color:$brun;
   padding-top: 40px;
+
+  .crea{
+    img{
+      width: 60%;
+    }
+  }
 }
