@@ -61,7 +61,6 @@ $router->map( 'GET', '/home', function() {
 
 
 
-
 $router->map( 'GET', '/region/[a:region]', function($region) {
 
         include_once './services/Utils.php';
