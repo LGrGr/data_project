@@ -2,7 +2,13 @@
 
 
 
-  <option value="valeur1">{{ region }}</option>
+
+
+ {% for Reg in region %} 
+
+ 	<option value="valeur">{{ Reg.nom_reg }}</option>
+
+{% endfor %}
    
  
 </select>
@@ -14,35 +20,29 @@
 
  	<option value="valeur">{{ dep.nom_dep }}</option>
 
-  {% endfor %}
+{% endfor %}
 
-
-<select name="ville" id="select">
-  <option value="valeur1">Valeur 1</option> 
-  <option value="valeur2">Valeur 2</option>
-  <option value="valeur3">Valeur 3</option>
 </select>
 
-<select name="genre" id="select">
+
+
+
+<select name="Ville" id="select" value="Ville">
+
   <option value="valeur1">Valeur 1</option> 
   <option value="valeur2">Valeur 2</option>
   <option value="valeur3">Valeur 3</option>
+
 </select>
 
 <a href='http://localhost/data_project/home' class='btn btn-warning'>Retour</a>
 
-<h1>Musées de {{ region }}</h1>
+
 {% for musee in musees %}
 <div>
     <h3>{{ musee.nom_du_musee }}</h3>
     <img src="{{ musee.lien_image}}">
 </div>
-
-
-
-
-
-
 
 {% endfor %}
 
