@@ -94,6 +94,7 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
               echo $template->render([
                   'musees' => $data, 
                   'region' => $Reg,
+                  'reg' => $new_region,
                   'departements' =>  $depByReg
                   
 
