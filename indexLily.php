@@ -31,33 +31,6 @@ $router->map( 'GET', '/toto', function() {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // match current request url
 $match = $router->match();
 
@@ -68,9 +41,6 @@ if( $match && is_callable( $match['target'] ) ) {
 	// no route was matched
 	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }
-
-
-
 
 
  ?>

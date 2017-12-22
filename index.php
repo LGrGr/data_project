@@ -7,7 +7,7 @@ require "./vendor/autoload.php";
 $router = new AltoRouter();
 
 
-$router->setBasePath('data_musees/');
+$router->setBasePath('data_project/');
 
 
 
@@ -28,8 +28,7 @@ $router->map( 'GET', '/', function() {
     $template = $twig->load('basic.html.twig');
     $data = ['Lucie', 'Floriane', 'Magalie', 'Antoine', 'Mourad'];
     
-    $params =["tab
-    " => $data];
+    $params =["tab" => $data];
     
     
     
@@ -73,7 +72,7 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
     
         if($new_region == false){
             
-            header("Location: http://localhost/data_musees/home");
+            header("Location: http://localhost/data_project/home");
             
         }else{
             
@@ -87,16 +86,10 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
               echo $template->render([
                   'musees' => $data, 
                   'region' => $new_region
+
               ]);
                 
-            
         }
-    
-    
-        
-   
-    
-    
     
 });
 

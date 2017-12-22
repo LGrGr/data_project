@@ -2,7 +2,7 @@
 {% for musee in musees %}
 <div>
     <h3>{{ musee.nom_du_musee }}</h3>
-    <p>{{ musee.periode_ouverture}}</p>
+    <img src="{{ musee.lien_image}}">
 </div>
 <hr> 
 {% endfor %}
