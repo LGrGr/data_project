@@ -30,15 +30,8 @@ $router->map( 'GET', '/', function() {
     
     $params =["tab" => $data];
     
-    
-    
-    
-    
     echo $template->render($params);
    
-    
-    
-    
 });
 
 
@@ -49,6 +42,8 @@ $router->map( 'GET', '/test', function() {
     
     
 });
+
+
 
 
 
@@ -63,11 +58,17 @@ $router->map( 'GET', '/home', function() {
 
 
 
+
+
+
+
 $router->map( 'GET', '/region/[a:region]', function($region) {
    
         include_once './services/Utils.php';
       
         $new_region =  Utils::parseRegion($region);
+
+
         
 
 
@@ -83,18 +84,32 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
               include_once './models/musees.php';
             
               $data = getMuseumByLand($pdo, $new_region);
-              $dep = getDepartements($pdo);
+              $depByReg =  getDepByReg($pdo, $new_region);
+              $Reg = getAllReg($pdo);
+
+    
               global $twig;
               $template = $twig->load('list-regions.html.twig');
     
               echo $template->render([
                   'musees' => $data, 
-                  'region' => $new_region,
-                  'departements' => $dep
+                  'region' => $Reg,
+                  'departements' =>  $depByReg
+                  
 
               ]);
                 
         }
+    
+});
+
+
+
+$router->map( 'GET', '/ajax/dep/[a:departements]', function() {
+   
+    echo "vous etes sur test !!";
+    
+    
     
 });
 
