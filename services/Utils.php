@@ -68,7 +68,7 @@ class Utils{
                     break;
 
                   case "paca":
-                    $region = "PROVENCE-ALPES-COTESD'AZUR";
+                    $region = "PROVENCE-ALPES-CÔTE D'AZUR";
                     break;  
 
                    case "reunion":

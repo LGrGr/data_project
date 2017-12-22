@@ -69,6 +69,9 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
       
         $new_region =  Utils::parseRegion($region);
         
+
+
+        
     
         if($new_region == false){
             
@@ -80,12 +83,14 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
               include_once './models/musees.php';
             
               $data = getMuseumByLand($pdo, $new_region);
+              $dep = getDepartements($pdo);
               global $twig;
               $template = $twig->load('list-regions.html.twig');
     
               echo $template->render([
                   'musees' => $data, 
-                  'region' => $new_region
+                  'region' => $new_region,
+                  'departements' => $dep
 
               ]);
                 

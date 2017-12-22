@@ -42,5 +42,4 @@ if( $match && is_callable( $match['target'] ) ) {
 	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }
 
-
- ?>
+?>
