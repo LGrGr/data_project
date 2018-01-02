@@ -15,7 +15,9 @@ $loader = new Twig_Loader_Filesystem('./views');
 
 $twig = new Twig_Environment($loader, array(
     'cache' => false,
+    'debug' => true
 ));
+$twig->addExtension(new Twig_Extension_Debug());
 
 
 
@@ -39,8 +41,6 @@ $router->map( 'GET', '/test', function() {
 
     echo "vous etes sur test !!";
 
-
-
 });
 
 
@@ -56,7 +56,25 @@ $router->map( 'GET', '/home', function() {
 
 });
 
+$router->map( 'GET', '/description/[i:id]', function($id) {
 
+
+   include_once './models/dbconfig.php';
+   include_once './models/musees.php';
+
+  $dep = getDepartements($pdo);
+  $musee = getIdByMusee($pdo, $id);
+
+
+     global $twig;
+     $template = $twig->load('description.html.twig');
+
+     echo $template->render([
+                           'deps' => $dep,
+                           'musee' => $musee[0]
+                           ]);
+    
+});
 
 
 
@@ -66,12 +84,6 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
         include_once './services/Utils.php';
 
         $new_region =  Utils::parseRegion($region);
-
-
-
-
-
-
 
         if($new_region == false){
 
@@ -94,11 +106,8 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
               echo $template->render([
                   'musees' => $data,
                   'region' => $Reg,
-                  'departements' =>  $depByReg,
+                  'departements' => $depByReg,
                   'reg' => $new_region
-
-
-
               ]);
 
         }
@@ -110,8 +119,6 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
 $router->map( 'GET', '/ajax/dep/[a:departements]', function() {
 
     echo "vous etes sur test !!";
-
-
 
 });
 
@@ -162,7 +169,4 @@ if( $match && is_callable( $match['target'] ) ) {
 
 
 /*-----------------------------------------------------------------------------Antoine---------------------------------------------------------------------------------------*/
-
-
-
 ?>

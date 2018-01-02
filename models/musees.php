@@ -14,6 +14,20 @@ function getMuseumByLand($pdo, $region){
 
 }
 
+function getIdByMusee($pdo, $id){
+
+
+    $stmt = $pdo->prepare("SELECT * FROM musee WHERE id = :id");
+    $stmt->bindParam(':id', $id);
+
+    $stmt->execute();
+
+    $result = $stmt->fetchAll();
+
+    return  $result;
+
+}
+
 function getRegion($pdo, $region){
 
 
@@ -53,10 +67,6 @@ function getAllReg($pdo){
 
 }
 
-
-
-
-
 function getGroup($pdo){
 
 	$stmt = $pdo->prepare("SELECT nom_reg, fonction nom_dep FROM musee");
@@ -81,6 +91,5 @@ function getDepByReg($pdo, $region){
     return  $result;
 
 }
-
 
 ?>
