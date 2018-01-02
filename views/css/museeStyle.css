@@ -8,53 +8,40 @@
   font-family: 'RalewaySB';
   src: url("../fonts/Raleway-SemiBold.ttf"); }
 @font-face {
-  font-family: 'Chewy';
-  src: url("../fonts/Chewy-Regular.ttf"); }
-@font-face {
   font-family: 'Handlee';
   src: url("../fonts/Handlee-Regular.ttf"); }
+@font-face {
+  font-family: 'MavenB';
+  src: url("../fonts/MavenPro-Bold.ttf"); }
 body {
   font-family: 'RalewayM'; }
 
-h2, h1 {
-  font-family: 'Chewy'; }
+h1, h3 {
+  font-family: 'MavenB'; }
 
-#carte {
-  padding-top: 30px; }
+h3 {
+  font-size: 2.5em; }
+
+h4 {
+  text-transform: uppercase;
+  font-family: "RalewaySB"; }
 
 header {
-  background: #a73439; }
+  background: #234a56; }
   header .topbar-responsive {
-    background: #a73439;
+    background: #234a56;
     padding: 1rem 1.5rem; }
+    header .topbar-responsive #logo {
+      position: absolute;
+      top: -15px;
+      width: 4.5%; }
     header .topbar-responsive .menu {
-      background: #a73439;
-      height: 50px; }
-      header .topbar-responsive .menu li:last-of-type {
-        margin-right: 0; }
-      header .topbar-responsive .menu a {
-        color: #fff;
-        transition: color 0.15s ease-in;
-        padding: 15px; }
-        header .topbar-responsive .menu a:hover {
-          background-color: #fff;
-          color: #a73439;
-          padding: 15px;
-          border-radius: 5px; }
-
-@media screen and (max-width: 39.9375em) {
-  padding: 0.75rem;
-  .top-bar-title {
-    position: relative;
-    width: 100%; } }
-#logo {
-  position: absolute;
-  top: -9px; }
+      background: #234a56; }
 
 /* Slider */
 #slider {
   width: 100%;
-  height: 580px;
+  height: 600px;
   position: relative;
   overflow: hidden; }
   #slider img {
@@ -96,14 +83,14 @@ header {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: #a73439;
+      background: #417d95;
       position: relative;
       -webkit-animation: on 30s infinite;
       -moz-animation: on 30s infinite;
       animation: on 30s infinite; }
   #slider .legend {
     border: 500px solid transparent;
-    border-left: 800px solid rgba(52, 73, 94, 0.5);
+    border-left: 800px solid rgba(52, 73, 94, 0.801);
     border-bottom: 0;
     position: absolute;
     bottom: 0; }
@@ -122,15 +109,14 @@ header {
       -moz-animation: content-s 7.5s infinite;
       animation: content-s 7.5s infinite; }
       #slider .content .content-txt h1 {
-        font-family: 'Chewy';
+        font-family: 'MavenB';
         text-transform: uppercase;
         font-size: 24px;
         color: #fff;
         margin-left: 30px;
         padding-bottom: 10px; }
       #slider .content .content-txt h2 {
-        font-family: 'RalewaySB';
-        font-size: 18px;
+        font-size: 16px;
         color: #fff;
         margin-left: 30px; }
 
@@ -318,23 +304,39 @@ header {
     fill: white; }
 
 /* carte */
-#map {
-  max-width: 50%;
-  max-height: 0%; }
-  #map path {
-    stroke-width: 3; }
-    #map path:hover {
-      fill: rgba(167, 52, 57, 0.6); }
+#carte {
+  padding-top: 60px;
+  padding-bottom: 60px; }
+
+#map path {
+  stroke-width: 3; }
+  #map path:hover {
+    fill: #89b9c5; }
+#map #Normandie, #map #hautDeFrance, #map #ileDeFrance, #map #grandEst, #map #bourgogneFrancheComte, #map #centreValLoire, #map #bretagne, #map #paysLoire, #map #paysLoire, #map #nouvelleAquitaine, #map #auvergneRhoneAlpes, #map #occitanie, #map #paca, #map #guyane, #map #reunion, #map #martinique, #map #guadeloupe, #map #mayotte, #map #corse {
+  cursor: pointer; }
 
 footer {
-  margin-top: 60px !important;
-  background-color: #BE8B5E;
-  padding-top: 40px; }
+  background-color: #234a56;
+  padding-top: 40px;
+  color: #fff;
+  font-size: 0.8em; }
   footer .crea img {
     width: 60%; }
 
 .mus {
   margin: 20px; }
+
+#musees {
+  padding-top: 60px;
+  padding-bottom: 60px; }
+  #musees .btn {
+    text-transform: uppercase; }
+  #musees a {
+    color: #234a56;
+    font-family: 'RalewaySB'; }
+
+.legende {
+  padding-bottom: 60px; }
 
 .image-hover-wrapper {
   position: relative;
@@ -349,7 +351,7 @@ footer {
     .image-hover-wrapper a img {
       float: left;
       overflow: hidden;
-      width: 350px;
+      width: 400px;
       height: 200px; }
     .image-hover-wrapper a .image-hover-wrapper-reveal {
       background-color: rgba(0, 0, 0, 0.5);
@@ -380,14 +382,43 @@ footer {
         width: 100%;
         transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55); }
   .image-hover-wrapper .image-hover-wrapper-banner {
-    background-color: rgba(167, 52, 57, 0.8);
+    background-color: rgba(65, 125, 149, 0.8);
     color: #fff;
     font-weight: 600;
     left: 0;
     padding: 0.5rem;
     position: absolute;
     top: 60%;
-    width: 75%;
+    width: 90%;
     z-index: 10; }
+
+@media screen and (max-width: 39.9375em) {
+  header .topbar-responsive #logo {
+    width: 15%; }
+
+  #carte {
+    padding-bottom: 40px;
+    padding-top: 40px; }
+    #carte #map {
+      max-width: 100%;
+      height: 385px; }
+
+  .legende {
+    padding-bottom: 0px; }
+
+  footer .crea img {
+    width: 100%; } }
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  #logo {
+    width: 10.5% !important; }
+
+  #map {
+    max-width: 90%; }
+
+  .legende {
+    padding-bottom: 60px; }
+
+  .crea img {
+    width: 80% !important; } }
 
 /*# sourceMappingURL=museeStyle.css.map */

@@ -1,9 +1,42 @@
+//polices
+@font-face {
+    font-family: 'RalewayM';
+    src: url('../fonts/Raleway-Medium.ttf');
+  }
+  
+  @font-face {
+    font-family: 'RalewayEB';
+    src: url('../fonts/Raleway-ExtraBold.ttf');
+  }
+  
+  @font-face {
+    font-family: 'RalewaySB';
+    src: url('../fonts/Raleway-SemiBold.ttf');
+  }
+  
+  @font-face {
+    font-family: 'Handlee';
+    src: url('../fonts/Handlee-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: 'MavenB';
+    src: url('../fonts/MavenPro-Bold.ttf');
+  }
+  
+//Variables
 $white: #fff;
-$rougePouilly: #a73439;
-$grisFonce: #5a5955;
-$gris: #c7c6c4;
-$brun: #BE8B5E;
-$rougePouillyTransp : rgba(167, 52, 57, 0.8); 
+$vertFonce: #234a56; 
+$vertClair: #89b9c5; 
+$bleuCanard: rgb(65, 125, 149); 
+
+$padding60: 60px; 
 
 $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in;
+
+$image-hover-wrapper-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$image-hover-wrapper-transition-delay: 0.25s;
+$image-hover-wrapper-banner-width: 90%;
+$image-hover-wrapper-banner-topspace: 25%;
+$image-hover-wrapper-banner-bg: rgba(65, 125, 149, 0.8);

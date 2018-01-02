@@ -1,93 +1,47 @@
-@font-face {
-  font-family: 'RalewayM';
-  src: url('../fonts/Raleway-Medium.ttf');
-}
-
-@font-face {
-  font-family: 'RalewayEB';
-  src: url('../fonts/Raleway-ExtraBold.ttf');
-}
-
-@font-face {
-  font-family: 'RalewaySB';
-  src: url('../fonts/Raleway-SemiBold.ttf');
-}
-
-@font-face {
-  font-family: 'Chewy';
-  src: url('../fonts/Chewy-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'Handlee';
-  src: url('../fonts/Handlee-Regular.ttf');
-}
-
 @import "variables.scss";
 
+//general
 body{
   font-family: 'RalewayM';
 }
 
-h2, h1{
-  font-family: 'Chewy';
+h1, h3{
+  font-family: 'MavenB'; 
 }
 
-#carte{
-  padding-top: 30px;
+h3{
+  font-size: 2.5em; 
+ }
+
+h4{
+  text-transform: uppercase; 
+  font-family: 'RalewaySB'
 }
 
+//Header et navbar
 header{
-    background: $rougePouilly;
+    background: $vertFonce;
 
 .topbar-responsive {
-  background: $rougePouilly;
+  background: $vertFonce;
   padding: 1rem 1.5rem;
 
+  #logo{
+      position: absolute;
+      top: -15px;
+      width: 4.5%; 
+    }
+
   .menu {
-    background: $rougePouilly;
-    height: 50px;
-
-    li:last-of-type {
-      margin-right: 0;
-    }
-
-    a {
-      color: $white;
-      transition: color 0.15s ease-in;
-      padding: 15px;
-
-      &:hover {
-          background-color: $white;
-          color: $rougePouilly;
-          padding: 15px;
-          border-radius: 5px;
-      }
-    }
+    background: $vertFonce;
     }
   }
 }
 
-   @media screen and (max-width: 39.9375em) {
-     padding: 0.75rem;
-
-    .top-bar-title {
-      position: relative;
-      width: 100%;
-      }
-    }
-
-    #logo{
-      position: absolute;
-      top: -9px;
-    }
-
-
-
 /* Slider */
 #slider{
   width: 100%;
-  height:580px;
+  height:600px;
   position:relative;
   overflow:hidden;
 
@@ -141,7 +95,7 @@ header{
       width:100%;
       height:100%;
       border-radius:50%;
-      background:$rougePouilly;
+      background:$bleuCanard;
       position:relative;
       -webkit-animation:on 30s infinite;
       -moz-animation:on 30s infinite;
@@ -151,7 +105,7 @@ header{
 
   .legend{
     border:500px solid transparent;
-    border-left:800px solid rgba(52, 73, 94, 0.5);
+    border-left:800px solid rgba(52, 73, 94, 0.801);
     border-bottom:0;
     position:absolute;
     bottom:0;
@@ -174,7 +128,7 @@ header{
       animation:content-s 7.5s infinite;
 
         h1{
-          font-family: 'Chewy';
+          font-family: 'MavenB';
           text-transform:uppercase;
           font-size:24px;
           color:#fff;
@@ -183,8 +137,7 @@ header{
         }
 
         h2{
-          font-family: 'RalewaySB';
-          font-size:18px;
+          font-size:16px;
           color:#fff;
           margin-left:30px;
         }
@@ -406,26 +359,35 @@ header{
 
 
 /* carte */
+#carte{
+  padding-top: $padding60; 
+  padding-bottom: $padding60; 
+}
+
 #map {
-    max-width: 50%;
-    max-height: 0%;
+
 
     path{
       stroke-width:3;
 
       &:hover{
-        fill: rgba(167, 52, 57, 0.6);
+        fill: $vertClair; 
+        ;
       }
+    }
+
+    #Normandie, #hautDeFrance, #ileDeFrance, #grandEst, #bourgogneFrancheComte, #centreValLoire, #bretagne, #paysLoire, #paysLoire, #nouvelleAquitaine, #auvergneRhoneAlpes, #occitanie, #paca, #guyane, #reunion, #martinique, #guadeloupe, #mayotte, #corse{
+      cursor: pointer;
     }
   }
 
 
 //footer
-
 footer{
-  margin-top: 60px !important;
-  background-color:$brun;
+  background-color:$vertFonce ; 
   padding-top: 40px;
+  color: #fff; 
+  font-size: 0.8em; 
 
   .crea{
     img{
@@ -435,15 +397,27 @@ footer{
 }
 
 // list
-
 .mus{
   margin: 20px; 
 }
-$image-hover-wrapper-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-$image-hover-wrapper-transition-delay: 0.25s;
-$image-hover-wrapper-banner-width: 75%;
-$image-hover-wrapper-banner-topspace: 25%;
-$image-hover-wrapper-banner-bg:$rougePouillyTransp;
+
+#musees{
+  padding-top:  $padding60; 
+  padding-bottom: $padding60; 
+
+    .btn{
+      text-transform: uppercase; 
+    }
+
+    a{
+      color: $vertFonce; 
+      font-family: 'RalewaySB'; 
+    }
+
+}
+.legende{
+  padding-bottom: $padding60; 
+}
 
 .image-hover-wrapper {
   position: relative;
@@ -460,7 +434,7 @@ $image-hover-wrapper-banner-bg:$rougePouillyTransp;
     img {
       float: left;
       overflow: hidden;
-      width: 350px;
+      width: 400px;
       height: 200px;
     }
 
@@ -513,3 +487,58 @@ $image-hover-wrapper-banner-bg:$rougePouillyTransp;
     z-index: 10;
   }
 }
+
+//media Queries
+
+//telephone
+@media screen and (max-width: 39.9375em) {
+  header .topbar-responsive #logo{
+    width: 15%; 
+  }
+
+  #carte{
+    padding-bottom: 40px; 
+    padding-top: 40px; 
+  
+  #map{
+    max-width: 100%; 
+    height: 385px; 
+  }
+  }
+
+  .legende{
+    padding-bottom: 0px; 
+  }
+
+  footer{
+  .crea{
+    img{
+      width: 100%;
+    }
+  }
+  }
+}
+
+// tablette
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  #logo{
+    width: 10.5% !important; 
+  }
+
+  #map{
+    max-width: 90%; 
+  }
+
+  .legende{
+    padding-bottom: $padding60; 
+  }
+
+  .crea{
+    img{
+      width: 80% !important;
+    }
+  }
+}
+
+
+
