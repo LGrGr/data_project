@@ -392,6 +392,12 @@ footer {
     width: 90%;
     z-index: 10; }
 
+#infoMusee svg {
+  margin: 30px; }
+#infoMusee p {
+  margin-top: 20px;
+  margin-bottom: 80px; }
+
 @media screen and (max-width: 39.9375em) {
   header .topbar-responsive #logo {
     width: 15%; }
