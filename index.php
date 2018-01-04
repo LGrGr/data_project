@@ -115,6 +115,7 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
         include_once './services/Utils.php';
 
         $new_region =  Utils::parseRegion($region);
+        $new_region2 = $region; 
 
         if($new_region == false){
 
@@ -135,14 +136,8 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
               $musees = $data["results"];
               $current_page =  $data["current_pages"]; 
               $nb_pages = $data["pages"];
-
               $suivant = $current_page+1;
-             
-              
-
-
               $precedent = $current_page-1;
-
 
               global $twig;
               $template = $twig->load('list-regions.html.twig');
@@ -155,7 +150,8 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
                   'departements' => $depByReg,
                   'reg' => $new_region,
                   'suivant' => $suivant,
-                  'precedent' => $precedent
+                  'precedent' => $precedent, 
+                  'reg2'=> $new_region2
               ]);
 
         }
