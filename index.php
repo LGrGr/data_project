@@ -3,6 +3,19 @@
 require "./vendor/autoload.php";
 
 
+function checkDeadLink ($url) { 
+
+    $a = @get_headers($url); 
+    if ($a) { 
+    //*** On a retour : on test le header HTTP 
+    if (strstr($a[0],'404')) 
+    return FALSE; // Erreur 404 
+    else 
+    return TRUE; // OK 
+    } 
+    else 
+    return FALSE; // Erreur accès au site 
+    }
 
 $router = new AltoRouter();
 
@@ -65,23 +78,43 @@ $router->map( 'GET', '/description/[i:id]', function($id) {
   $dep = getDepartements($pdo);
   $musee = getIdByMusee($pdo, $id);
 
+    $dir    = './views/images_musees';
+    $files1 = scandir($dir);
+ 
+
+
+    if (in_array($musee[0]['id'].".png", $files1)) {
+        $path_image = $musee[0]['id'].".png";
+    }else{
+
+        $path_image = null;
+
+    }
 
      global $twig;
      $template = $twig->load('description.html.twig');
 
+    if(!checkDeadLink($musee[0]['site_web'])){
+        $musee[0]['site_web'] = '#'; 
+    }
      echo $template->render([
                            'deps' => $dep,
-                           'musee' => $musee[0]
+                           'musee' => $musee[0],
+                           'image' => $path_image
                            ]);
     
 });
 
 
 
+<<<<<<< HEAD
 
 $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 
         $max = 10;
+=======
+$router->map( 'GET', '/region/[a:region]', function($region) {
+>>>>>>> 8359eeda3c3957cea35490e8c2f394e773b22c22
 
         include_once './services/Utils.php';
 

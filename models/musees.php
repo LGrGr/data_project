@@ -60,6 +60,9 @@ function getIdByMusee($pdo, $id){
 
 }
 
+
+
+
 function getRegion($pdo, $region){
 
 
