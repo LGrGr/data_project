@@ -34,6 +34,7 @@ $twig->addExtension(new Twig_Extension_Debug());
 
 
 
+/*
 $router->map( 'GET', '/', function() {
 
 
@@ -55,6 +56,7 @@ $router->map( 'GET', '/test', function() {
     echo "vous etes sur test !!";
 
 });
+*/
 
 
 
@@ -105,13 +107,21 @@ $router->map( 'GET', '/description/[i:id]', function($id) {
     
 });
 
-
-
-
 $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 
         $max = 12;
 
+        if($page == 0){
+
+           $page = 1 ;
+        }else{
+
+          $page = $page - 1 ;
+
+
+        }
+
+ 
         include_once './services/Utils.php';
 
         $new_region =  Utils::parseRegion($region);
@@ -136,8 +146,9 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
               $musees = $data["results"];
               $current_page =  $data["current_pages"]; 
               $nb_pages = $data["pages"];
-              $suivant = $current_page+1;
-              $precedent = $current_page-1;
+
+              $suivant = $current_page + 2;
+              $precedent = $current_page;
 
               global $twig;
               $template = $twig->load('list-regions.html.twig');
@@ -159,7 +170,6 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 });
 
 
-
 $router->map( 'GET', '/ajax/dep/[a:departements]', function() {
 
     echo "vous etes sur test !!";
@@ -167,7 +177,31 @@ $router->map( 'GET', '/ajax/dep/[a:departements]', function() {
 });
 
 /*-----------------------------------------------------Lucie ------------------------------------------------------------------------------------*/
+$router->map( 'GET','/search', function() {
+    
+    include_once './services/search.php';
+    include_once './models/dbconfig.php';
+    
+    $word = $_GET['query'];
+    
+    $result = search($pdo, $word);
+    
+    global $twig;
+    $template = $twig->load('search.html.twig');
+    
 
+    
+    $params =[
+            "musees" => $result,
+            "word" => $word
+             
+             ];
+
+    echo $template->render($params);
+
+    
+
+});
 
 
 
