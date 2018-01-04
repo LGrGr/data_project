@@ -34,6 +34,7 @@ $twig->addExtension(new Twig_Extension_Debug());
 
 
 
+/*
 $router->map( 'GET', '/', function() {
 
 
@@ -55,6 +56,7 @@ $router->map( 'GET', '/test', function() {
     echo "vous etes sur test !!";
 
 });
+*/
 
 
 
@@ -167,7 +169,31 @@ $router->map( 'GET', '/ajax/dep/[a:departements]', function() {
 });
 
 /*-----------------------------------------------------Lucie ------------------------------------------------------------------------------------*/
+$router->map( 'GET','/search', function() {
+    
+    include_once './services/search.php';
+    include_once './models/dbconfig.php';
+    
+    $word = $_GET['query'];
+    
+    $result = search($pdo, $word);
+    
+    global $twig;
+    $template = $twig->load('search.html.twig');
+    
 
+    
+    $params =[
+            "musees" => $result,
+            "word" => $word
+             
+             ];
+
+    echo $template->render($params);
+
+    
+
+});
 
 
 
