@@ -107,14 +107,10 @@ $router->map( 'GET', '/description/[i:id]', function($id) {
 
 
 
-<<<<<<< HEAD
 
 $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 
-        $max = 10;
-=======
-$router->map( 'GET', '/region/[a:region]', function($region) {
->>>>>>> 8359eeda3c3957cea35490e8c2f394e773b22c22
+        $max = 12;
 
         include_once './services/Utils.php';
 
