@@ -105,13 +105,10 @@ $router->map( 'GET', '/description/[i:id]', function($id) {
     
 });
 
-
-
-
-
 $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 
-        $max = 10;
+        $max = 12;
+
 
         include_once './services/Utils.php';
 
@@ -139,9 +136,6 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 
               $suivant = $current_page+1;
              
-              
-
-
               $precedent = $current_page-1;
 
 
@@ -162,7 +156,6 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
         }
 
 });
-
 
 
 $router->map( 'GET', '/ajax/dep/[a:departements]', function() {
