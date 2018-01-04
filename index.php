@@ -34,7 +34,7 @@ $twig->addExtension(new Twig_Extension_Debug());
 
 
 
-/*$router->map( 'GET', '/', function() {
+$router->map( 'GET', '/', function() {
 
 
     global $twig;
@@ -47,14 +47,14 @@ $twig->addExtension(new Twig_Extension_Debug());
 
     echo $template->render($params);
 
-});*/
+});
 
 
-/*$router->map( 'GET', '/test', function() {
+$router->map( 'GET', '/test', function() {
 
     echo "vous etes sur test !!";
 
-});*/
+});
 
 
 
@@ -106,10 +106,12 @@ $router->map( 'GET', '/description/[i:id]', function($id) {
 });
 
 
+
+
+
 $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 
         $max = 10;
-
 
         include_once './services/Utils.php';
 
@@ -137,6 +139,9 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 
               $suivant = $current_page+1;
              
+              
+
+
               $precedent = $current_page-1;
 
 
