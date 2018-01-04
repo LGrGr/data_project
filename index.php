@@ -109,10 +109,21 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 
         $max = 12;
 
+        if($page == 0){
 
+           $page = 1 ;
+        }else{
+
+          $page = $page - 1 ;
+
+
+        }
+
+ 
         include_once './services/Utils.php';
 
         $new_region =  Utils::parseRegion($region);
+        $new_region2 = $region; 
 
         if($new_region == false){
 
@@ -134,10 +145,8 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
               $current_page =  $data["current_pages"]; 
               $nb_pages = $data["pages"];
 
-              $suivant = $current_page+1;
-             
-              $precedent = $current_page-1;
-
+              $suivant = $current_page + 2;
+              $precedent = $current_page;
 
               global $twig;
               $template = $twig->load('list-regions.html.twig');
@@ -150,7 +159,8 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
                   'departements' => $depByReg,
                   'reg' => $new_region,
                   'suivant' => $suivant,
-                  'precedent' => $precedent
+                  'precedent' => $precedent, 
+                  'reg2'=> $new_region2
               ]);
 
         }

@@ -46,6 +46,7 @@ function getPartsMusees($pdo,$region, $page, $max){
   return $infos;
 }
 
+
 function getIdByMusee($pdo, $id){
 
 
