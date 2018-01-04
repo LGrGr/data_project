@@ -43,28 +43,16 @@
             </a>
           </div>
         </div>
-
         {% endfor %}
-
       </div>
-
     </div>
-
   </section>
 
-
-
 <ul class="pagination text-center" role="navigation" aria-label="Pagination">
-
-
-  
       {% if current_page != 0 %}
-
         <li class="pagination-previous"><a href="{{precedent}}" aria-label="Previous page">Précédent</a></li>
-
       {% endif %}
 
- 
     {% for i in range(0, nb_pages) %}
       {% if i == current_page %}
         <li class="current"><span class="show-for-sr">You're on page</span>{{i + 1}}</li>
@@ -72,14 +60,11 @@
         <li><a href="http://localhost/data_project/region/{{reg2}}/{{i + 1}}">{{i + 1}}</a></li>
       {% endif %}
     {% endfor %}
-
       {% if current_page != nb_pages %}
 
        <li class="pagination-next"><a href="{{suivant}}" aria-label="Next page">Suivant</a></li>
       {% endif %}
- 
 </ul>
-
 </div>
 
 {% endblock %}

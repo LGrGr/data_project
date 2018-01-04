@@ -39,10 +39,17 @@ span {
   cursor: pointer; }
 
 header {
-  background: #234a56; }
+  background: #234a56;
+    /*form{
+
+      [type=search]{
+        border-radius: 30px; 
+      }
+    }*/ }
   header .topbar-responsive {
     background: #234a56;
-    padding: 1rem 1.5rem; }
+    padding: 1rem 1.5rem;
+    height: 65px; }
     header .topbar-responsive #logo {
       position: absolute;
       top: -15px;
@@ -489,5 +496,80 @@ footer {
   #infoMusee .fond {
     top: 200px;
     background-color: rgba(65, 125, 149, 0.5); } }
+body *, html * {
+  box-sizing: border-box; }
+
+.container {
+  position: absolute;
+  left: 80%;
+  top: 15px;
+  transform: translate(-50%);
+  display: flex; }
+  .container button {
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 25px;
+    font-size: 0.8em; }
+
+.search-box input[type="text"] {
+  border: none;
+  background: none;
+  z-index: 1;
+  width: 25px;
+  height: 25px;
+  transition: all .25s ease-in .25s;
+  color: transparent;
+  font-size: .75rem;
+  line-height: 25px; }
+
+.search-box input[type="text"]:hover {
+  cursor: pointer; }
+
+.search-box input[type="text"]:hover:focus {
+  cursor: text; }
+
+.search-box input[type="text"]:hover + span {
+  background: rgba(255, 255, 255, 0.2); }
+
+.search-box input[type="text"]:focus {
+  width: 200px;
+  padding: 0 10px;
+  outline: none;
+  color: black;
+  background: none;
+  color: white; }
+
+.search-box input[type="text"]:focus + span {
+  width: 200px; }
+
+.search-box input[type="text"]:focus + span::before {
+  width: 2px;
+  opacity: 0;
+  transition: all .25s ease-in; }
+
+.search-box input[type="text"] + span {
+  z-index: -1;
+  position: absolute;
+  border: 2px solid white;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  transition: all .25s ease-in .25s;
+  border-radius: 25px;
+  left: 0; }
+
+.search-box input[type="text"] + span::before {
+  transition: all .25s ease-in .5s;
+  transform-origin: left top;
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  border-radius: 5px;
+  background: white;
+  transform: rotate(45deg) translate(26px, -2px); }
 
 /*# sourceMappingURL=museeStyle.css.map */

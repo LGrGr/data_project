@@ -1,10 +1,7 @@
 <?php
-
 require "./vendor/autoload.php";
 
-
 function checkDeadLink ($url) { 
-
     $a = @get_headers($url); 
     if ($a) { 
     //*** On a retour : on test le header HTTP 
@@ -19,10 +16,7 @@ function checkDeadLink ($url) {
 
 $router = new AltoRouter();
 
-
 $router->setBasePath('data_project/');
-
-
 
 $loader = new Twig_Loader_Filesystem('./views');
 
@@ -32,48 +26,14 @@ $twig = new Twig_Environment($loader, array(
 ));
 $twig->addExtension(new Twig_Extension_Debug());
 
-
-
-/*
-$router->map( 'GET', '/', function() {
-
-
-    global $twig;
-
-
-    $template = $twig->load('basic.html.twig');
-    $data = ['Lucie', 'Floriane', 'Magalie', 'Antoine', 'Mourad'];
-
-    $params =["tab" => $data];
-
-    echo $template->render($params);
-
-});
-
-
-$router->map( 'GET', '/test', function() {
-
-    echo "vous etes sur test !!";
-
-});
-*/
-
-
-
-
-
 $router->map( 'GET', '/home', function() {
-
      global $twig;
      $template = $twig->load('home.html.twig');
 
      echo $template->render();
-
 });
 
 $router->map( 'GET', '/description/[i:id]', function($id) {
-
-
    include_once './models/dbconfig.php';
    include_once './models/musees.php';
 
@@ -83,16 +43,11 @@ $router->map( 'GET', '/description/[i:id]', function($id) {
     $dir    = './views/images_musees';
     $files1 = scandir($dir);
  
-
-
     if (in_array($musee[0]['id'].".png", $files1)) {
         $path_image = $musee[0]['id'].".png";
     }else{
-
         $path_image = null;
-
     }
-
      global $twig;
      $template = $twig->load('description.html.twig');
 
@@ -110,29 +65,19 @@ $router->map( 'GET', '/description/[i:id]', function($id) {
 $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
 
         $max = 12;
-
         if($page == 0){
-
            $page = 1 ;
         }else{
-
           $page = $page - 1 ;
-
-
         }
 
- 
         include_once './services/Utils.php';
-
         $new_region =  Utils::parseRegion($region);
         $new_region2 = $region; 
 
         if($new_region == false){
-
             header("Location: http://localhost/data_project/home");
-
         }else{
-
               include_once './models/dbconfig.php';
               include_once './models/musees.php';
 
@@ -140,8 +85,6 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
               $depByReg =  getDepByReg($pdo, $new_region);
               $Reg = getAllReg($pdo);
               $regions = getRegion($pdo, $region);
-
-
 
               $musees = $data["results"];
               $current_page =  $data["current_pages"]; 
@@ -164,75 +107,25 @@ $router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
                   'precedent' => $precedent, 
                   'reg2'=> $new_region2
               ]);
-
         }
-
 });
 
-
-$router->map( 'GET', '/ajax/dep/[a:departements]', function() {
-
-    echo "vous etes sur test !!";
-
-});
-
-/*-----------------------------------------------------Lucie ------------------------------------------------------------------------------------*/
 $router->map( 'GET','/search', function() {
     
     include_once './services/search.php';
     include_once './models/dbconfig.php';
     
     $word = $_GET['query'];
-    
     $result = search($pdo, $word);
     
     global $twig;
     $template = $twig->load('search.html.twig');
-    
-
-    
     $params =[
             "musees" => $result,
             "word" => $word
-             
              ];
-
     echo $template->render($params);
-
-    
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // match current request url
 $match = $router->match();
@@ -244,7 +137,4 @@ if( $match && is_callable( $match['target'] ) ) {
 	// no route was matched
 	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }
-
-
-/*-----------------------------------------------------------------------------Antoine---------------------------------------------------------------------------------------*/
 ?>
