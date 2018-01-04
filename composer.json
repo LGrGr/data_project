@@ -8,6 +8,7 @@
     ],
     "require": {
         "altorouter/altorouter": "^1.2",
-        "twig/twig": "^2.4"
+        "twig/twig": "^2.4",
+        "knplabs/knp-paginator-bundle": "^2.7"
     }
 }

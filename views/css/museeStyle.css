@@ -449,6 +449,12 @@ footer {
   .legende {
     padding-bottom: 0px; }
 
+   .pagination ul{
+display: inline;
+
+
+    }
+
   footer .crea img {
     width: 100%; }
 
