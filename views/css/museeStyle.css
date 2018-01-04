@@ -412,6 +412,12 @@ footer {
   .legende {
     padding-bottom: 0px; }
 
+   .pagination ul{
+display: inline;
+
+
+    }
+
   footer .crea img {
     width: 100%; } }
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {

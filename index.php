@@ -79,7 +79,9 @@ $router->map( 'GET', '/description/[i:id]', function($id) {
 
 
 
-$router->map( 'GET', '/region/[a:region]', function($region) {
+$router->map( 'GET', '/region/[a:region]/[i:page]', function($region,$page) {
+
+        $max = 10;
 
         include_once './services/Utils.php';
 
@@ -94,20 +96,37 @@ $router->map( 'GET', '/region/[a:region]', function($region) {
               include_once './models/dbconfig.php';
               include_once './models/musees.php';
 
-              $data = getMuseumByLand($pdo, $new_region);
+              $data =getPartsMusees($pdo, $new_region,$page,$max);
               $depByReg =  getDepByReg($pdo, $new_region);
               $Reg = getAllReg($pdo);
               $regions = getRegion($pdo, $region);
+
+
+
+              $musees = $data["results"];
+              $current_page =  $data["current_pages"]; 
+              $nb_pages = $data["pages"];
+
+              $suivant = $current_page+1;
+             
+              
+
+
+              $precedent = $current_page-1;
 
 
               global $twig;
               $template = $twig->load('list-regions.html.twig');
 
               echo $template->render([
-                  'musees' => $data,
+                  'musees' => $musees,
                   'region' => $Reg,
+                  'current_page' => $current_page,
+                  'nb_pages' => $nb_pages,
                   'departements' => $depByReg,
-                  'reg' => $new_region
+                  'reg' => $new_region,
+                  'suivant' => $suivant,
+                  'precedent' => $precedent
               ]);
 
         }
